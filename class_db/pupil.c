@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-Pupil *createPupil(const char *firstName, const char *lastName, const char* phoneNumber, int* grades)
+Pupil* createPupil(const char* firstName, const char* lastName, const char* phoneNumber, int* grades)
 {
     Pupil* newPupil = (Pupil*)malloc(sizeof(Pupil));
 
     newPupil->firstName = firstName;
     newPupil->lastName = lastName;
-    strcpy(newPupil->phoneNumber, phoneNumber);
+    strcpy_s(newPupil->phoneNumber, phoneNumber, 500);
     newPupil->phoneNumber[10] = '\0'; // Ensure null-termination
     newPupil->grades = grades;
 

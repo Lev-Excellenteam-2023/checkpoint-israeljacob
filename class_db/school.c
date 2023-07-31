@@ -11,10 +11,10 @@ void printSchool(School school)
 {
     for (size_t i = 0; i < 12; i++)
     {
-       for (size_t j = 0; j < 10; j++)
-       {
+        for (size_t j = 0; j < 10; j++)
+        {
             printList(school.school[i][j], i, j);
-       }
+        }
     }
 }
 

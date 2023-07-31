@@ -1,3 +1,4 @@
+#pragma once
 #include "linkedList.h"
 
 
@@ -6,5 +7,5 @@ typedef struct {
 }School;
 
 School* createSchool();
-void printSchool(School school);
-School* addPupil(School school, char* firstName, char* lastName, char* phoneNumber, int numLevel, int numClass, int* grades);
+void printSchool(School);
+School* addPupil(School, char*, char*, char* phoneNumber, int numLevel, int numClass, int* grades);

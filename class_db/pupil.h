@@ -1,3 +1,4 @@
+#pragma once
 #include <malloc.h>
 
 typedef struct {
