@@ -154,6 +154,11 @@ void printTopNStudentsPerCourse(School* school)
   input = getNumber(0, 9);
 }
 
+void printUnderperformedStudents(School* school)
+{
+  printUnderperformed(*school, 70);
+}
+
 void printAverage(School* school)
 {
   int numLevel;
@@ -225,7 +230,7 @@ void menu(School *school) {
                 //printTopNStudentsPerCourse(school);
                 break;
             case UnderperformedStudents:
-                //printUnderperformedStudents();
+                printUnderperformedStudents(school);
                 break;
             case Average:
                 printAverage(school);
@@ -234,7 +239,6 @@ void menu(School *school) {
                 exportDatabase(school);
                 break;
             case Exit:
-                //handleClosing();
                 break;
             default:
                 printf("\nThere is no item with symbol \"%c\".Please enter a number between 1-10!\nPress any key to continue...",

@@ -49,10 +49,22 @@ void printList(LinkedList list, int numLevel, int numClass)
 void addFirst(LinkedList* list, char firstName[], char lastName[], char phoneNumber[], int grades[])
 {
     Pupil pupil = createPupil(firstName, lastName, phoneNumber, grades);
-    Node* node = createNode(pupil);
-    if(list->head != NULL)
-        node->next = list->head;
-    list->head = node;
+    Node* pupilNode = createNode(pupil);
+    Node* node = list->head;
+    if(list->head == NULL)
+    {
+      list->head = pupilNode;
+      return;
+    }
+    Node* preNode = node;
+    do
+    {
+      preNode = node;
+      node = node->next;
+    }while(node != NULL && node->myPupil.average < pupil.average);
+    if(node != NULL)
+      pupilNode->next = node;
+    preNode->next = pupilNode;
 } 
 
 Pupil* nodeSearch(Node* node, char firstName[], char lastName[])
@@ -106,7 +118,12 @@ void addGradeToNode(Node* node, char firstName[], char lastName[], int input, in
     node = node->next;
   }while(node != NULL);
   if(node != NULL)
+  {
+    printf("Changed succesfully\n");
     node->myPupil.grades[input] = grade;
+  }
+  else
+    printf("Pupil did not found\n");
 }
 
 int getClassAverage(Node* node, int course)
@@ -133,6 +150,16 @@ void writeLinkedListToFile(Node* node, FILE* file, int level, int class)
             fprintf(file, "%d ", node->myPupil.grades[i]);
         }
         fprintf(file, "\n");
+        node = node->next;
+    }
+}
+
+void printListUnderperformed(LinkedList list, int numLevel, int numClass, int average)
+{
+    Node* node = list.head;
+    while (node != NULL && node->myPupil.average < average)
+    {
+        printPupil(&node->myPupil, numLevel, numClass);
         node = node->next;
     }
 }

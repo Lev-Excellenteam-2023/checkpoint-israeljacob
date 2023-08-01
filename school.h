@@ -14,3 +14,4 @@ void deleteFromSchool(School school, char[], char [], int, int);
 void addGrade(School school, char[], char [], int, int, int, int);
 int getAverage(School, int, int);
 void saveSchoolToFile(School school, const char* fileName);
+void printUnderperformed(School, int);

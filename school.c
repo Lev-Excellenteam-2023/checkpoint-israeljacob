@@ -79,3 +79,15 @@ void saveSchoolToFile(School school, const char* fileName)
 
   fclose(file);
 }
+
+
+void printUnderperformed(School school, int average)
+{
+  for (size_t i = 0; i < 12; i++)
+  {
+      for (size_t j = 0; j < 10; j++)
+      {
+          printListUnderperformed(school.school[i][j], i, j, average);
+      }
+  }
+}

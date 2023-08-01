@@ -26,4 +26,5 @@ void deletePupil(Node* node, char firstName[], char lastName[]);
 void addGradeToNode(Node* node, char firstName[], char lastName[], int, int);
 int getClassAverage(Node* node, int);
 void writeLinkedListToFile(Node* node, FILE* file, int, int);
+void printListUnderperformed(LinkedList list, int numLevel, int numClasses, int average);
 
