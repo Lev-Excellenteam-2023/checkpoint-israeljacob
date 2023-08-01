@@ -43,4 +43,3 @@ void printPupil(const Pupil* pupil, int numLevel, int numClass)
     }
     printf("\n");
 }
-

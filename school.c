@@ -42,4 +42,7 @@ School addPupil(School school, char firstName[], char lastName[], char phoneNumb
     return school;
 }
 
-
+Pupil* searchPupil(School school, char firstName[], char lastName[], int numLevel, int numClass)
+{
+  return nodeSearch(school.school[numLevel][numClass].head, firstName, lastName);
+}

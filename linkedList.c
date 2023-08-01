@@ -53,5 +53,17 @@ void addFirst(LinkedList* list, char firstName[], char lastName[], char phoneNum
     if(list->head != NULL)
         node->next = list->head;
     list->head = node;
-    //return &list;
 } 
+
+Pupil* nodeSearch(Node* node, char firstName[], char lastName[])
+{
+  if(node == NULL)
+    return NULL;
+  
+  do
+  {
+    if(!strcmp(node->myPupil.firstName, firstName) && !strcmp(node->myPupil.lastName, lastName))
+      return &node->myPupil;
+    node = node->next;
+  }while(node != NULL);
+}
