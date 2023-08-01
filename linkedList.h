@@ -1,4 +1,3 @@
-#pragma once
 #include "pupil.h"
 
 typedef struct
@@ -23,4 +22,6 @@ Node* createNode(Pupil pupil);
 void printList(LinkedList list, int numLevel, int numClasses);
 void addFirst(LinkedList* list, char firstName[], char lastName[], char phoneNumber[], int grades[]);
 Pupil* nodeSearch(Node* node, char firstName[], char lastName[]);
+void deletePupil(Node* node, char firstName[], char lastName[]);
+void addGradeToNode(Node* node, char firstName[], char lastName[], int, int);
 

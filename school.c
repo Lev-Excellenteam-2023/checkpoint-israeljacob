@@ -46,3 +46,13 @@ Pupil* searchPupil(School school, char firstName[], char lastName[], int numLeve
 {
   return nodeSearch(school.school[numLevel][numClass].head, firstName, lastName);
 }
+
+void deleteFromSchool(School school, char firstName[], char lastName[], int numLevel, int numClass)
+{
+  deletePupil(school.school[numLevel][numClass].head, firstName, lastName);
+}
+
+void addGrade(School school, char firstName[], char lastName[], int numLevel, int numClass, int input, int grade)
+{
+  addGradeToNode(school.school[numLevel][numClass].head, firstName, lastName, input, grade);
+}

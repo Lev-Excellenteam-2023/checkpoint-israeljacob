@@ -67,3 +67,44 @@ Pupil* nodeSearch(Node* node, char firstName[], char lastName[])
     node = node->next;
   }while(node != NULL);
 }
+
+void deletePupil(Node* node, char firstName[], char lastName[])
+{
+    if (node == NULL)
+        return;
+
+    Node* preNode = node;
+    while (node != NULL)
+    {
+        if (!strcmp(node->myPupil.firstName, firstName) && !strcmp((node)->myPupil.lastName, lastName))
+        {
+            if (preNode == node) // If the first node is the one to delete
+            {
+                node = node->next; // Update the head pointer
+            }
+            else
+            {
+                preNode->next = node->next;
+            }
+            free (node);
+            node = NULL;
+            return;
+        }
+        preNode = node;
+        node = preNode->next;
+    }
+}
+
+void addGradeToNode(Node* node, char firstName[], char lastName[], int input, int grade)
+{
+  if (node == NULL)
+        return;
+  do
+  {
+    if(!strcmp(node->myPupil.firstName, firstName) && !strcmp(node->myPupil.lastName, lastName))
+      break;
+    node = node->next;
+  }while(node != NULL);
+  if(node != NULL)
+    node->myPupil.grades[input] = grade;
+}
