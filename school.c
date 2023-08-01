@@ -66,3 +66,16 @@ int getAverage(School school, int numLevel, int course)
   }
   return sum/10;
 } 
+
+void saveSchoolToFile(School school, const char* fileName)
+{
+  FILE* file = fopen(fileName, "w");
+
+  for (size_t i = 0; i < 12; i++) {
+      for (size_t j = 0; j < 10; j++) {
+          writeLinkedListToFile(school.school[i][j].head, file, i + 1, j + 1);
+      }
+  }
+
+  fclose(file);
+}

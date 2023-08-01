@@ -166,6 +166,11 @@ void printAverage(School* school)
   printf("The average is %d", average);
 }
 
+void exportDatabase(School* school)
+{
+  saveSchoolToFile(*school, "newFile.txt");
+}
+
 enum menu_inputs {
     Insert = '0',
     Delete = '1',
@@ -226,7 +231,7 @@ void menu(School *school) {
                 printAverage(school);
                 break;
             case Export:
-                //exportDatabase();
+                exportDatabase(school);
                 break;
             case Exit:
                 //handleClosing();

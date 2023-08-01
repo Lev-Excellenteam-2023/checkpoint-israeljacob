@@ -123,3 +123,16 @@ int getClassAverage(Node* node, int course)
   }while(node != NULL);
   return sum/counter;
 }
+
+void writeLinkedListToFile(Node* node, FILE* file, int level, int class)
+{
+   while (node != NULL) {
+        fprintf(file, "%s %s %s %d %d ", node->myPupil.firstName, node->myPupil.lastName,
+                node->myPupil.phoneNumber, level, class);
+        for (int i = 0; i < 10; i++) {
+            fprintf(file, "%d ", node->myPupil.grades[i]);
+        }
+        fprintf(file, "\n");
+        node = node->next;
+    }
+}

@@ -25,11 +25,13 @@ Pupil createPupil(const char firstName[], const char lastName[], const char phon
     }
     newPupil.phoneNumber[10] = 0;
 
+    int sum = 0;
     for (i = 0; i < 10; i++)
     {
+        sum += grades[i];
         newPupil.grades[i] = grades[i];
     }
-
+    newPupil.average = sum/10;
     return newPupil;
 }
 
