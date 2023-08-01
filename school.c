@@ -56,3 +56,13 @@ void addGrade(School school, char firstName[], char lastName[], int numLevel, in
 {
   addGradeToNode(school.school[numLevel][numClass].head, firstName, lastName, input, grade);
 }
+
+int getAverage(School school, int numLevel, int course)
+{
+  int sum = 0;
+  for (size_t i = 0; i < 10; i++)
+  {
+      sum += getClassAverage(school.school[numLevel][i].head, course);
+  }
+  return sum/10;
+} 

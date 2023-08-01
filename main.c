@@ -65,19 +65,6 @@ void getPupilDetails(char* firstName[], char* lastName[], int* numLevel, int* nu
   *numClass = getNumber(1,10);
 }
 
-enum professions {
-    Math = 0,
-    English = 1,
-    Hebrew = 2,
-    Computers = 3,
-    Citizenship = 4,
-    Tora = 5,
-    Safrut = 6,
-    History = 7,
-    Religion = 8,
-    Electric = 9
-};
-
 void insertNewStudent(School* school)
 {
     char firstName[50];
@@ -121,16 +108,8 @@ void deleteStudent(School* school)
   deleteFromSchool(*school, firstName, lastName, numLevel - 1, numClass - 1);
 }
 
-
-void editStudentGrade(School* school)
+void printPerformences()
 {
-  int input;
-  char firstName[50];
-  char lastName[50];
-  int numLevel;
-  int numClass;
-  int grade;
-  getPupilDetails(&firstName, &lastName, &numLevel, &numClass);
   printf("\t[0] |--> Math\n");
   printf("\t[1] |--> English\n");
   printf("\t[2] |--> Hebrew\n");
@@ -142,6 +121,18 @@ void editStudentGrade(School* school)
   printf("\t[8] |--> Religion\n");
   printf("\t[9] |--> Electric\n");
   printf("\n\tPlease Enter Your Choice (0-9): ");
+}
+
+void editStudentGrade(School* school)
+{
+  int input;
+  char firstName[50];
+  char lastName[50];
+  int numLevel;
+  int numClass;
+  int grade;
+  getPupilDetails(&firstName, &lastName, &numLevel, &numClass);
+  printPerformences();
   input = getNumber(0, 9);
   printf("Enter the updated grade\n");
   grade = getNumber(0, 100);
@@ -151,6 +142,28 @@ void editStudentGrade(School* school)
 void printAllStudents(School* school)
 {
   printSchool(*school);
+}
+
+void printTopNStudentsPerCourse(School* school)
+{
+  int n;
+  int input;
+  printf("Enter the number of students\n");
+  n = getNumber(1, 1000000000);
+  printPerformences();
+  input = getNumber(0, 9);
+}
+
+void printAverage(School* school)
+{
+  int numLevel;
+  int course;
+  printf("Enter the level\n");
+  numLevel = getNumber(1, 12);
+  printPerformences();
+  course = getNumber(0, 9);
+  int average = getAverage(*school, numLevel, course);
+  printf("The average is %d", average);
 }
 
 enum menu_inputs {
@@ -204,13 +217,13 @@ void menu(School *school) {
                 printAllStudents(school);
                 break;
             case Top10:
-                //printTopNStudentsPerCourse();
+                //printTopNStudentsPerCourse(school);
                 break;
             case UnderperformedStudents:
                 //printUnderperformedStudents();
                 break;
             case Average:
-                //printAverage();
+                printAverage(school);
                 break;
             case Export:
                 //exportDatabase();

@@ -108,3 +108,18 @@ void addGradeToNode(Node* node, char firstName[], char lastName[], int input, in
   if(node != NULL)
     node->myPupil.grades[input] = grade;
 }
+
+int getClassAverage(Node* node, int course)
+{
+  int sum = 0;
+  if (node == NULL)
+        return sum;
+  int counter = 0;
+  do
+  {
+    sum += node->myPupil.grades[course];
+    counter++;
+    node = node->next;
+  }while(node != NULL);
+  return sum/counter;
+}

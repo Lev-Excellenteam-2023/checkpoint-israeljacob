@@ -24,4 +24,6 @@ void addFirst(LinkedList* list, char firstName[], char lastName[], char phoneNum
 Pupil* nodeSearch(Node* node, char firstName[], char lastName[]);
 void deletePupil(Node* node, char firstName[], char lastName[]);
 void addGradeToNode(Node* node, char firstName[], char lastName[], int, int);
+int getClassAverage(Node* node, int);
+
 

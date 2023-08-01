@@ -12,3 +12,4 @@ School addPupil(School, char*, char*, char* phoneNumber, int numLevel, int numCl
 Pupil* searchPupil(School school, char[], char [], int, int);
 void deleteFromSchool(School school, char[], char [], int, int);
 void addGrade(School school, char[], char [], int, int, int, int);
+int getAverage(School, int, int);

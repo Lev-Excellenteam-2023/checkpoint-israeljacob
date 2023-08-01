@@ -5,6 +5,7 @@ typedef struct {
 	char lastName[51];
 	char phoneNumber[11];
 	int grades[10];
+	int average;
 }Pupil;
 
 Pupil createPupil(const char pupilFirstName[], const char lastName[], const char phoneNumber[], int grades[]);
