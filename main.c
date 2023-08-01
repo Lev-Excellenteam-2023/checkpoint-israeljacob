@@ -2,9 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-School* populateSchoolFromFile(School* school, const char* fileName) {
-    FILE* file;
-    fopen_s(&file, fileName, "r");
+School populateSchoolFromFile(School school, const char* fileName) {
+    FILE* file = fopen(fileName, "r");
 
     char firstName[50];
     char lastName[50];
@@ -13,13 +12,13 @@ School* populateSchoolFromFile(School* school, const char* fileName) {
     int numClass;
     int grades[10];
 
-    while (fscanf_s(file, "%49s %49s %10s %d %d", firstName, 50, lastName, 50, phoneNumber, 11, &numLevel, &numClass) == 5) {
+    while (fscanf(file, "%s %s %s %d %d", firstName, lastName, phoneNumber, &numLevel, &numClass) == 5) {
         for (size_t i = 0; i < 10; i++) {
-            fscanf_s(file, "%d", &grades[i]);
+            fscanf(file, "%d", &grades[i]);
         }
         numLevel--;
         numClass--;
-        *school = addPupil(*school, firstName, lastName, phoneNumber, numLevel, numClass, grades);
+        school = addPupil(school, firstName, lastName, phoneNumber, numLevel, numClass, grades);
     }
 
     fclose(file);
@@ -27,9 +26,9 @@ School* populateSchoolFromFile(School* school, const char* fileName) {
 }
 
 int main() {
-    School* school = createSchool();
+     School school = createSchool();
     school = populateSchoolFromFile(school, "file.txt");
-    printSchool(*school);
-
+    printSchool(school);
+    destroySchool(school);
     return 0;
 }

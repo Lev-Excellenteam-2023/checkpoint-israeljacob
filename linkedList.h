@@ -16,10 +16,11 @@ typedef struct {
 
 
 
-LinkedList* createLinkedList();
+LinkedList createLinkedList();
 void destroyLinkdList(LinkedList* list);
 void destroyNode(Node* node);
-Node* createNode(Pupil* pupil);
+Node* createNode(Pupil pupil);
 void printList(LinkedList list, int numLevel, int numClasses);
-LinkedList* addFirst(LinkedList list, char* firstName, char* lastName, char* phoneNumber, int* grades);
+void addFirst(LinkedList* list, char firstName[], char lastName[], char phoneNumber[], int grades[]);
+
 

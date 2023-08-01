@@ -1,113 +1,15 @@
-==8802== Memcheck, a memory error detector
-==8802== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==8802== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==8802== Command: ./main
-==8802== Parent PID: 6574
-==8802== 
-==8802== Conditional jump or move depends on uninitialised value(s)
-==8802==    at 0x10985A: addFirst (in /home/israel/Downloads/c++/main)
-==8802==    by 0x10943E: addPupil (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109CCF: populateSchoolFromFile (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109DE2: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802== 
-==8802== Conditional jump or move depends on uninitialised value(s)
-==8802==    at 0x1096EF: printList (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1093B3: printSchool (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109E2C: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802== 
-==8802== Use of uninitialised value of size 8
-==8802==    at 0x109619: printList (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1093B3: printSchool (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109E2C: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802== 
-==8802== Invalid read of size 8
-==8802==    at 0x109619: printList (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1093B3: printSchool (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109E2C: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802==  Address 0x575b0 is not stack'd, malloc'd or (recently) free'd
-==8802== 
-==8802== 
-==8802== Process terminating with default action of signal 11 (SIGSEGV)
-==8802==  Access not within mapped region at address 0x575B0
-==8802==    at 0x109619: printList (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1093B3: printSchool (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109E2C: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802==  If you believe this happened as a result of a stack
-==8802==  overflow in your program's main thread (unlikely but
-==8802==  possible), you can try to increase the size of the
-==8802==  main thread stack using the --main-stacksize= flag.
-==8802==  The main thread stack size used in this run was 8388608.
-==8802== 
-==8802== HEAP SUMMARY:
-==8802==     in use at exit: 16,801,024 bytes in 100,001 blocks
-==8802==   total heap usage: 100,003 allocs, 2 frees, 16,805,592 bytes allocated
-==8802== 
-==8802== 1,024 bytes in 1 blocks are still reachable in loss record 1 of 2
-==8802==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==8802==    by 0x48DE0F3: _IO_file_doallocate (filedoalloc.c:101)
-==8802==    by 0x48EE07F: _IO_doallocbuf (genops.c:347)
-==8802==    by 0x48ECFDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
-==8802==    by 0x48EB7B4: _IO_new_file_xsputn (fileops.c:1243)
-==8802==    by 0x48EB7B4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==8802==    by 0x48BCAA0: __printf_buffer_flush_to_file (printf_buffer_to_file.c:59)
-==8802==    by 0x48BCAA0: __printf_buffer_to_file_done (printf_buffer_to_file.c:120)
-==8802==    by 0x48C6B38: __vfprintf_internal (vfprintf-internal.c:1460)
-==8802==    by 0x48BBF9E: printf (printf.c:33)
-==8802==    by 0x109B4B: printPupil (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1096D3: printList (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1093B3: printSchool (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109E2C: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802== 
-==8802== 16,800,000 bytes in 100,000 blocks are still reachable in loss record 2 of 2
-==8802==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==8802==    by 0x1094A1: createNode (in /home/israel/Downloads/c++/main)
-==8802==    by 0x10983E: addFirst (in /home/israel/Downloads/c++/main)
-==8802==    by 0x10943E: addPupil (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109CCF: populateSchoolFromFile (in /home/israel/Downloads/c++/main)
-==8802==    by 0x109DE2: main (in /home/israel/Downloads/c++/main)
-==8802==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==8802==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==8802==    by 0x109164: _start (in /home/israel/Downloads/c++/main)
-==8802==    by 0x1FFEFFFF47: ???
-==8802==    by 0x37: ???
-==8802== 
-==8802== LEAK SUMMARY:
-==8802==    definitely lost: 0 bytes in 0 blocks
-==8802==    indirectly lost: 0 bytes in 0 blocks
-==8802==      possibly lost: 0 bytes in 0 blocks
-==8802==    still reachable: 16,801,024 bytes in 100,001 blocks
-==8802==         suppressed: 0 bytes in 0 blocks
-==8802== 
-==8802== Use --track-origins=yes to see where uninitialised values come from
-==8802== For lists of detected and suppressed errors, rerun with: -s
-==8802== ERROR SUMMARY: 123 errors from 4 contexts (suppressed: 0 from 0)
+==9597== Memcheck, a memory error detector
+==9597== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==9597== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==9597== Command: ./main
+==9597== Parent PID: 6574
+==9597== 
+==9597== 
+==9597== HEAP SUMMARY:
+==9597==     in use at exit: 0 bytes in 0 blocks
+==9597==   total heap usage: 100,003 allocs, 100,003 frees, 16,805,592 bytes allocated
+==9597== 
+==9597== All heap blocks were freed -- no leaks are possible
+==9597== 
+==9597== For lists of detected and suppressed errors, rerun with: -s
+==9597== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

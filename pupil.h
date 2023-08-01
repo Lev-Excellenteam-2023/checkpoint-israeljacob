@@ -8,5 +8,5 @@ typedef struct {
 	int grades[10];
 }Pupil;
 
-Pupil* createPupil(const char* pupilFirstName, const char* lastName,const char* phoneNumber, int* grades);
-void printPupil(const Pupil pupil, int numLevel, int numClass);
+Pupil createPupil(const char pupilFirstName[], const char lastName[], const char phoneNumber[], int grades[]);
+void printPupil(const Pupil* pupil, int numLevel, int numClass);
